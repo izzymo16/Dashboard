@@ -29,67 +29,47 @@
 body {
     font-family: "Lato", sans-serif;
 }
-  /*
-.sidenav {
-height: 100%;
-width: 0;
-position: fixed;
-z-index: 1;
-top: 0;
-right: 0;
-background-color: transparent;
-overflow-x: hidden;
-transition: 0.5s;
-padding-top: 60px;
-}
-*/
 
-/* The sidenav */
 .sidenav {
+    display: none;
     height: 100%;
-    width: 200px;
+    width: 250px;
     position: fixed;
     z-index: 1;
     top: 0;
     right: 0;
-    background-color: transparent;
+    background-color: #cdcaca;
     overflow-x: hidden;
-    padding-top: 20px;
+    padding-top: 60px;
   }
   
-  /* Page content */
-.main {
-    margin-right: 200px; /* Same as the width of the sidenav */
-}
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+  }
   
-.sidenav a {
-padding: 8px 8px 8px 32px;
-text-decoration: none;
-font-size: 25px;
-color: #818181;
-display: block;
-transition: 0.3s;
-}
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
   
-.sidenav a:hover {
-color: #f1f1f1;
-}
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
   
-.sidenav .closebtn {
-position: absolute;
-top: 0;
-right: 0px;
-font-size: 36px;
-margin-right: 0px;
-}
-
-@media screen and (max-height: 450px) {
-.sidenav {padding-top: 15px;}
-.sidenav a {font-size: 18px;}
-}
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
 
 .collapsible {
-    background-color: #777;
+    background-color: transparent;
     color: white;
     cursor: pointer;
     padding: 18px;
@@ -101,7 +81,7 @@ margin-right: 0px;
 }
 
 .collapsed {
-    background-color: #777;
+    background-color: transparent;
     color: white;
     cursor: pointer;
     padding: 18px;
@@ -111,14 +91,27 @@ margin-right: 0px;
     outline: none;
     font-size: 15px;
 }
-  
+
+
 .active, .collapsible:hover {
-    background-color: #555;
+   color: grey;
 }
+
+.active, .collapsed:hover {
+    color: grey;
+}
+
   
 .content {
     padding: 0 18px;
     display: none;
     overflow: hidden;
-    background-color: #f1f1f1;
+    background-color: #e9e7e7;
+}
+
+.content2 {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: transparent;
 }
