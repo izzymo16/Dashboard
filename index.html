@@ -2,8 +2,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <title>Title</title>
+    <link rel="stylesheet" href="style2.css">
+    <title>Dashboard</title>
 </head>
 
 <body>
@@ -14,31 +14,41 @@
     <div id="mySidenav" class="sidenav">
         <!--<button type="button" class="collapsed" href="javascript:void(0)" class="closebtn" onclick="closeNav()" >&times;</button>-->
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" >&times;<br><br></a>
-        <button type="button" class="collapsible">Location 1</button>
-        <div class="content">
-            <button type="button" class="collapsed">Data</button>
-            <div class="content">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+        <div class="dropleft">
+          <button class="dropleft" href="#">Location 1 <i class="arrow up"></i></button>
+            <div class="dropleft-content">
+              <a href="#">Info Here</a>
+              <a href="#">Info Here</a>
+              <a href="#">Info Here</a>
             </div>
         </div>
-        <button type="button" class="collapsible">Location 2</button>
-        <div class="content">
-            <button type="button" class="collapsed">Data</button>
-            <div class="content">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>        </div>
-        <button type="button" class="collapsible">Location 3</button>
-        <div class="content">
-            <button type="button" class="collapsed">Data</button>
-            <div class="content">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-            <button type="button" class="collapsed">Table</button>
-            <div class="content">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <div class="dropleft"> 
+          <button class="dropleft" href="#">Location 2 <i class="arrow up"></i></button>
+            <div class="dropleft-content">
+              <a href="#">Info Here</a>
+              <a href="#">Info Here</a>
+              <a href="#">Info Here</a>
             </div>
         </div>
-    </div>  
+        <div class="dropleft"> 
+          <button class="dropleft" href="#">Location 3 <i class="arrow up"></i></button>
+            <div class="dropleft-content">
+              <a href="#">Info Here</a>
+              <a href="#">Info Here</a>
+              <div class="dropdown">
+                <button class="dropdown-btn">More info <i class="arrow up"></i></button>
+                <div class="dropdown-content">
+                <a href="#">Info Here</a>
+                <a href="#">Info Here</a>
+                <a href="#">Info Here</a>
+                </div>
+              </div>
+            </div>
+        </div>
+
+    </div>
+
     <script>
     /* Open the sidenav */
     function openNav() {
@@ -49,36 +59,37 @@
     function closeNav() {
     document.getElementById("mySidenav").style.display = "none";
     }
-    var coll = document.getElementsByClassName("collapsible");
+
+
+    var dropdown = document.querySelectorAll(".dropdown-btn button"); // Use querySelectorAll
     var i;
 
-    for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.display === "block") {
-        content.style.display = "none";
-        } else {
-        content.style.display = "block";
-        }
-    });
+    for (j = 0; j < dropdown.length; j++) {
+        dropdown[i].addEventListener("click", function(event) {
+            event.stopPropagation(); // Stop event propagation
+            var dropdown = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+            } else {
+                dropdownContent.style.display = "block";
+            }
+        });
     }
 
-    var colld = document.getElementsByClassName("collapsed");
+    var dropleftButtons = document.querySelectorAll(".dropleft button"); // Use querySelectorAll
     var j;
 
-    for (j = 0; j < colld.length; j++) {
-    colld[j].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.display === "block") {
-        content.style.display = "none";
-        } else {
-        content.style.display = "block";
-        }
-    });
+    for (j = 0; j < dropleftButtons.length; j++) {
+        dropleftButtons[j].addEventListener("click", function(event) {
+            event.stopPropagation(); // Stop event propagation
+            var dropleftContent = this.nextElementSibling;
+            if (dropleftContent.style.display === "block") {
+                dropleftContent.style.display = "none";
+            } else {
+                dropleftContent.style.display = "block";
+            }
+        });
     }
-
     </script>
 </body>
 
