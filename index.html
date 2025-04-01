@@ -1,96 +1,114 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+
+        .container {
+            display: flex; 
+            justify-content: flex-end; 
+            height: 100vh;
+            
+        }
+
+        .row {
+            position: relative; 
+            display:flex;
+            flex-direction: column;
+            width: 200px;
+            align-items: flex-end;
+            
+        }
+
+        .column {
+            /*float: left;*/
+            width: 33.33%;
+            padding: 50px;
+        
+            text-align: center;
+            font-size: 25px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .containerTab {
+            position: absolute; 
+            top: 0;
+            right: 0;
+            width: 200%; 
+            height: 100%; 
+            padding: 20px;
+            color: white;
+            display: none;
+            z-index: 1; /* Place above other elements to "expand"*/
+            background-color:#e9e7e7;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .closebtn {
+            float: right;
+            color: white;
+            font-size: 35px;
+            cursor: pointer;
+        }
+    </style>
 </head>
-
 <body>
-    <div class="topnav">
-        <a class="active" href="#home">Home</a>
-        <a href="#locations" class="split" onclick="openNav()">&#9776; Locations</a>
-    </div>
-    <div id="mySidenav" class="sidenav">
-        <!--<button type="button" class="collapsed" href="javascript:void(0)" class="closebtn" onclick="closeNav()" >&times;</button>-->
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" >&times;<br><br></a>
+    <div class="container">
+      <div class="row">
+          <div class="column" onclick="openTab('b1');" style="background:#cdcaca">
+              DT Icon
+          </div>
+          <div class="column" onclick="openTab('b2');" style="background:#cdcaca">
+              Icon
+          </div>
+          <div class="column" onclick="openTab('b3');" style="background:#cdcaca">
+              Icon
+          </div>
 
-        <div class="dropleft">
-          <button class="dropleft" href="#">Location 1 <i class="arrow up"></i></button>
-            <div class="dropleft-content">
-              <a href="#">Info Here</a>
-              <a href="#">Info Here</a>
-              <a href="#">Info Here</a>
-            </div>
-        </div>
-        <div class="dropleft"> 
-          <button class="dropleft" href="#">Location 2 <i class="arrow up"></i></button>
-            <div class="dropleft-content">
-              <a href="#">Info Here</a>
-              <a href="#">Info Here</a>
-              <a href="#">Info Here</a>
-            </div>
-        </div>
-        <div class="dropleft"> 
-          <button class="dropleft" href="#">Location 3 <i class="arrow up"></i></button>
-            <div class="dropleft-content">
-              <a href="#">Info Here</a>
-              <a href="#">Info Here</a>
-              <div class="dropdown">
-                <button class="dropdown-btn">More info <i class="arrow up"></i></button>
-                <div class="dropdown-content">
-                <a href="#">Info Here</a>
-                <a href="#">Info Here</a>
-                <a href="#">Info Here</a>
-                </div>
-              </div>
-            </div>
-        </div>
+          <div id="b1" class="containerTab" style="background:#cdcaca">
+              <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+              <h2>Data Tables</h2>
+              <p>Lorem ipsum dolor sit amet, te quo doctus abhorreant, et pri deleniti intellegat, te sanctus inermis ullamcorper nam. Ius error diceret deseruisse ad</p>
+          </div>
 
+          <div id="b2" class="containerTab" style="background:#cdcaca">
+              <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+              <h2>Box 2</h2>
+              <p>Lorem ipsum dolor sit amet, te quo doctus abhorreant, et pri deleniti intellegat, te sanctus inermis ullamcorper nam. Ius error diceret deseruisse ad</p>
+          </div>
+
+          <div id="b3" class="containerTab" style="background:#cdcaca">
+              <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+              <h2>Box 3</h2>
+              <p>Lorem ipsum dolor sit amet, te quo doctus abhorreant, et pri deleniti intellegat, te sanctus inermis ullamcorper nam. Ius error diceret deseruisse ad</p>
+          </div>
+      </div>
     </div>
 
     <script>
-    /* Open the sidenav */
-    function openNav() {
-    document.getElementById("mySidenav").style.display = "block";
-    }
-
-    /* Close/hide the sidenav */
-    function closeNav() {
-    document.getElementById("mySidenav").style.display = "none";
-    }
-
-
-    var dropdown = document.querySelectorAll(".dropdown-btn button"); // Use querySelectorAll
-    var i;
-
-    for (j = 0; j < dropdown.length; j++) {
-        dropdown[i].addEventListener("click", function(event) {
-            event.stopPropagation(); // Stop event propagation
-            var dropdown = this.nextElementSibling;
-            if (dropdownContent.style.display === "block") {
-                dropdownContent.style.display = "none";
-            } else {
-                dropdownContent.style.display = "block";
+        function openTab(tabName) {
+            var i, x;
+            x = document.getElementsByClassName("containerTab");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
             }
-        });
-    }
-
-    var dropleftButtons = document.querySelectorAll(".dropleft button"); // Use querySelectorAll
-    var j;
-
-    for (j = 0; j < dropleftButtons.length; j++) {
-        dropleftButtons[j].addEventListener("click", function(event) {
-            event.stopPropagation(); // Stop event propagation
-            var dropleftContent = this.nextElementSibling;
-            if (dropleftContent.style.display === "block") {
-                dropleftContent.style.display = "none";
-            } else {
-                dropleftContent.style.display = "block";
-            }
-        });
-    }
+            document.getElementById(tabName).style.display = "block";
+        }
     </script>
 </body>
-
 </html>
